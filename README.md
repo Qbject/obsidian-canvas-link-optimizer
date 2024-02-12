@@ -21,3 +21,4 @@ Link nodes provide convenient previews of linked content without having to open 
 - **Performance Impact**: Auto-loading is akin to opening additional browser tabs, which can significantly increase CPU and RAM usage. This can lead to performance issues, particularly on less powerful devices.
 - **Security Concerns**: Autoloading pages can inadvertently load malicious content, posing potential risks such as cryptocurrency mining or sandbox escape attempts.
 - **Visual Distractions**: The auto-loading of links can create flickering and other visual disturbances that interrupt your workflow and focus.
+- **Loading Delays**: Full page loads can be sluggish, particularly with a slow internet connection, leading to a less streamlined experience.
