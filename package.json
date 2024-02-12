@@ -1,7 +1,7 @@
 {
-	"name": "obsidian-sample-plugin",
+	"name": "canvas-link-optimizer",
 	"version": "1.0.0",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+	"description": "Prevent canvas links from automatic webpage loading.",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
