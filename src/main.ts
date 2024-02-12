@@ -1,7 +1,8 @@
 import { around } from "monkey-around";
-import { Plugin, Canvas, CanvasView, LinkNodeConstructor, Platform } from "obsidian";
+import { Plugin, Canvas, CanvasView, LinkNodeConstructor } from "obsidian";
 import { NativeImage } from "electron";
 import { createHash } from "crypto";
+import { sleep } from "./util";
 
 export default class CanvasLinkOptimizerPlugin extends Plugin {
 	name = "Canvas Link Optimizer";
@@ -126,21 +127,21 @@ export default class CanvasLinkOptimizerPlugin extends Plugin {
 						const onFrameLoaded = async () => {
 							this.frameEl.removeEventListener("did-frame-finish-load", onFrameLoaded);
 
+							// some pages aren't fully initialized at this moment, so waiting a bit more
+							await sleep(1000);
+
 							// saving page title
 							const metadataPath = thisPlugin.getLinkCachePath(this.url, "metadata.json");
 							this.app.vault.adapter.write(metadataPath, JSON.stringify({
 								title: this.frameEl.getTitle()
 							}));
 
-							// some pages may still show loading state at this point, waiting more
-							setTimeout(async () => {
-								// saving captured thumbnail
-								const img: NativeImage = await this.frameEl.capturePage();
-								const thumbnailPath = thisPlugin.getLinkCachePath(this.url, "thumbnail.jpg");
-								this.app.vault.adapter.writeBinary(thumbnailPath, img.toJPEG(100));
+							// saving captured thumbnail
+							const img: NativeImage = await this.frameEl.capturePage();
+							const thumbnailPath = thisPlugin.getLinkCachePath(this.url, "thumbnail.jpg");
+							this.app.vault.adapter.writeBinary(thumbnailPath, img.toJPEG(100));
 
-								thisPlugin.log(`Cached link ${this.url}`);
-							}, 1000);
+							thisPlugin.log(`Cached link ${this.url}`);
 						}
 
 						this.frameEl.addEventListener("did-frame-finish-load", onFrameLoaded);
