@@ -1,7 +1,7 @@
 {
 	"id": "canvas-link-optimizer",
 	"name": "Canvas Link Optimizer",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"minAppVersion": "1.1.9",
 	"description": "Prevent canvas links from automatic webpage loading.",
 	"author": "khaelar",
