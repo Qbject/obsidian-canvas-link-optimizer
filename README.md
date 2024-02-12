@@ -22,3 +22,4 @@ Link nodes provide convenient previews of linked content without having to open 
 - **Security Concerns**: Autoloading pages can inadvertently load malicious content, posing potential risks such as cryptocurrency mining or sandbox escape attempts.
 - **Visual Distractions**: The auto-loading of links can create flickering and other visual disturbances that interrupt your workflow and focus.
 - **Loading Delays**: Full page loads can be sluggish, particularly with a slow internet connection, leading to a less streamlined experience.
+- **Unexpected Autoplay**: Autoloaded pages, such as YouTube channel homepages, may contain autoplay content, which can be disruptive if audio begins playing unexpectedly while navigating the canvas.
