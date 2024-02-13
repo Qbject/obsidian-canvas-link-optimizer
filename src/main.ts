@@ -93,14 +93,8 @@ export default class CanvasLinkOptimizerPlugin extends Plugin {
 
 						this._perviewImageEl = this.contentEl.doc.createElement("img");
 						this.contentEl.append(this._perviewImageEl);
-						this._perviewImageEl.classList.add("thumbnail");
+						this._perviewImageEl.classList.add("link-thumbnail");
 						this._perviewImageEl.alt = "Webpage thumbnail";
-						this._perviewImageEl.style.position = "absolute";
-						this._perviewImageEl.style.top = "0";
-						this._perviewImageEl.style.left = "0";
-						this._perviewImageEl.style.width = "100%";
-						this._perviewImageEl.style.height = "100%";
-						this._perviewImageEl.style.objectFit = "contain";
 
 						// displaying cached thumbnail
 						this._perviewImageEl.src = thisPlugin.app.vault.adapter
