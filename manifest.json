@@ -3,7 +3,7 @@
 	"name": "Canvas Link Optimizer",
 	"version": "1.0.2",
 	"minAppVersion": "1.1.9",
-	"description": "Prevent canvas links from automatic webpage loading.",
+	"description": "Optimize canvas links by displaying a page thumbnail.",
 	"author": "khaelar",
 	"authorUrl": "https://github.com/khaelar",
 	"isDesktopOnly": true
