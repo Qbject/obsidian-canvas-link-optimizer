@@ -5,13 +5,14 @@ import { createHash } from "crypto";
 
 export default class CanvasLinkOptimizerPlugin extends Plugin {
 	name = "Canvas Link Optimizer";
+	cacheDir = `${this.manifest.dir}/data/linkCache`;
 
 	async onload() {
 		this.registerEvent(this.app.workspace.on(`${this.manifest.id}:patched-canvas`, () => {
 			this.reloadActiveCanvasViews();
 		}));
 
-		this.app.vault.adapter.mkdir(this.getCacheDir());
+		this.app.vault.adapter.mkdir(this.cacheDir);
 
 		this.app.workspace.onLayoutReady(() => {
 			if (!this.tryPatchLinkNode()) {
@@ -167,16 +168,8 @@ export default class CanvasLinkOptimizerPlugin extends Plugin {
 		return dummyLinkNode.constructor;
 	}
 
-	getPluginDir(): string {
-		return `${this.app.vault.configDir}/plugins/${this.manifest.id}`;
-	}
-
-	getCacheDir(): string {
-		return `${this.getPluginDir()}/data/linkCache`;
-	}
-
 	getLinkCachePath(url: string, suffix: string): string {
 		const linkHash = createHash('sha256').update(url).digest("hex");
-		return `${this.getCacheDir()}/${linkHash.slice(0, 16)}.${suffix}`;
+		return `${this.cacheDir}/${linkHash.slice(0, 16)}.${suffix}`;
 	}
 }
