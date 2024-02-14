@@ -2,7 +2,6 @@ import { around } from "monkey-around";
 import { Plugin, Canvas, CanvasView, LinkNodeConstructor } from "obsidian";
 import { NativeImage } from "electron";
 import { createHash } from "crypto";
-import { sleep } from "./util";
 
 export default class CanvasLinkOptimizerPlugin extends Plugin {
 	name = "Canvas Link Optimizer";
