@@ -96,9 +96,9 @@ export default class CanvasLinkOptimizerPlugin extends Plugin {
 							const oldWidth = oldWidthMatch ? oldWidthMatch[1].trim() : "";
 							const oldHeight = oldHeightMatch ? oldHeightMatch[1].trim() : "";
 
-							if (newWidth !== oldWidth || newHeight !== oldHeight) {
-								saveThumbnail();
-							}
+							if (!oldWidth || !oldHeight || !newWidth || !newHeight) return;
+							if (newWidth === oldWidth && newHeight === oldHeight) return;
+							saveThumbnail();
 						}
 					}
 				);
