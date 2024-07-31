@@ -6,20 +6,15 @@ declare module "obsidian" {
 	}
 
 	interface Workspace {
-		trigger(
-			name: string,
-		): void;
+		trigger(name: string): void;
 
-		on(
-			name: string,
-			cb: () => any,
-		): EventRef;
+		on(name: string, cb: () => unknown): EventRef;
 	}
 
 	interface Canvas {
-		initialize(...args: any[]): any;
-		recreateFrame(...args: any[]): any;
-		createLinkNode(...args: any[]): LinkNode;
+		initialize(...args: unknown[]): unknown;
+		recreateFrame(...args: unknown[]): unknown;
+		createLinkNode(...args: unknown[]): LinkNode;
 	}
 
 	interface CanvasView extends View {
@@ -32,10 +27,14 @@ declare module "obsidian" {
 	}
 
 	interface LinkNodeConstructor {
-		prototype: any;
+		prototype: (...args: unknown[]) => unknown;
 	}
 
 	interface Vault {
 		exists(path: string): Promise<boolean>;
+	}
+
+	interface CanvasNodeData {
+		id: string;
 	}
 }
