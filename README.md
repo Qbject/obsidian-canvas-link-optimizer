@@ -10,6 +10,10 @@ With the Canvas Link Optimizer Plugin enabled, it looks like this:
 
 This plugin does not modify your vault data. All thumbnails are cached locally in the `.obsidian/plugins/canvas-link-optimizer/data` directory, which can be safely cleared if necessary.
 
+## Installation
+
+You can install the plugin from the official [Obsidian Plugin Market](https://obsidian.md/plugins?id=canvas-link-optimizer). Alternatively, you can download the latest release from this repository and move its files `main.js`, `manifest.json` and `styles.css` to folder `.obsidian/plugins/canvas-link-optimizer` within your vault.
+
 ## Keep In Mind
 
 To generate a page thumbnail, the plugin initially performs a standard page load. Thus, it won't immediately optimize pre-existing link nodes as well as newly created ones.
