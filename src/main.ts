@@ -92,6 +92,11 @@ export default class CanvasLinkOptimizerPlugin extends Plugin {
 				function () {
 					return `${thisPlugin.cacheDir}/${this.id}.metadata.json`;
 				},
+			updateBreakpoint: () =>
+				function () {
+					// make link nodes always visible
+					this.mountContent();
+				},
 			initialize: (next: (...args: unknown[]) => unknown) =>
 				function (...args: unknown[]) {
 					this._initializing = true;
@@ -157,7 +162,6 @@ export default class CanvasLinkOptimizerPlugin extends Plugin {
 					// displaying thumbnail
 					(async () => {
 						const revealWebview = () => {
-							this.alwaysKeepLoaded = true;
 							this._perviewImageEl?.remove?.();
 							this.recreateFrame();
 						};
@@ -176,8 +180,6 @@ export default class CanvasLinkOptimizerPlugin extends Plugin {
 							this.recreateFrame();
 							return;
 						}
-
-						this.alwaysKeepLoaded = false;
 
 						// setting cached title
 						const metadataRaw =
