@@ -49,7 +49,7 @@ export default class CanvasLinkOptimizerPlugin extends Plugin {
 	reloadActiveCanvasViews() {
 		this.app.workspace
 			.getLeavesOfType("canvas")
-			.map((leaf) => leaf.rebuildView());
+			.forEach((leaf) => leaf.rebuildView());
 	}
 
 	log(msg: unknown, debug = false) {
