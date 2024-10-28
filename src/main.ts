@@ -2,11 +2,11 @@ import { around } from "monkey-around";
 import {
 	Plugin,
 	Canvas,
-	CanvasView,
 	LinkNodeConstructor,
 	debounce,
 	Notice,
 	CanvasNodeData,
+	CanvasLeaf,
 } from "obsidian";
 import { NativeImage } from "electron";
 
@@ -59,12 +59,9 @@ export default class CanvasLinkOptimizerPlugin extends Plugin {
 	}
 
 	tryPatchLinkNode(): boolean {
-		const canvasView = this.app.workspace
-			.getLeavesOfType("canvas")
-			.first()?.view;
-		if (!canvasView) return false;
-
-		const canvas: Canvas = (canvasView as CanvasView)?.canvas;
+		const canvas = (
+			this.app.workspace.getLeavesOfType("canvas") as CanvasLeaf[]
+		).find((leaf) => leaf?.view?.canvas)?.view?.canvas;
 		if (!canvas) return false;
 
 		const linkNodeConstructor = this.retrieveLinkNodeConstructor(canvas);

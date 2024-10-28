@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { App } from "obsidian";
 
 declare module "obsidian" {
@@ -15,6 +16,10 @@ declare module "obsidian" {
 		initialize(...args: unknown[]): unknown;
 		recreateFrame(...args: unknown[]): unknown;
 		createLinkNode(...args: unknown[]): LinkNode;
+	}
+
+	interface CanvasLeaf extends WorkspaceLeaf {
+		view: CanvasView;
 	}
 
 	interface CanvasView extends View {
