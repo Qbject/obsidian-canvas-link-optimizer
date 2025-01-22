@@ -3,10 +3,10 @@
 This is a lightweight Obsidian plugin designed to enhance the user experience with canvas link nodes. By default, link nodes in Obsidian canvas load the web page content as they come into view. The plugin modifies this behavior by displaying a preview thumbnail instead, which significantly reduces resource consumption. Users can still access the full web page by clicking on the thumbnail if they need more detailed information.
 
 Here's the default behavior of link nodes in Obsidian:
-![](doc/img/showcase-no-plugin.gif)
+![](doc/img/showcase-no-plugin.avif)
 
 With the Canvas Link Optimizer Plugin enabled, it looks like this:
-![](doc/img/showcase-with-plugin.gif)
+![](doc/img/showcase-with-plugin.avif)
 
 This plugin does not modify your vault data. All thumbnails are cached locally in the `.obsidian/plugins/canvas-link-optimizer/data` directory, which can be safely cleared if necessary.
 
