@@ -8,7 +8,7 @@ Here's the default behavior of link nodes in Obsidian:
 With the Canvas Link Optimizer Plugin enabled, it looks like this:
 ![](doc/img/showcase-with-plugin.avif)
 
-This plugin does not modify your vault data. All thumbnails are cached locally in the `.obsidian/plugins/canvas-link-optimizer/data` directory, which can be safely cleared if necessary.
+This plugin does not modify your vault data. All thumbnails are cached locally in the `.obsidian/plugins/canvas-link-optimizer/data` directory, which can be safely cleaned if necessary.
 
 ## Installation
 
